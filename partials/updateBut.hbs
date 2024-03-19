@@ -1,0 +1,27 @@
+<div class="container">
+<div id="inf">
+    <form action="/update" method="post">
+        <input type="text" name="id" id="id" value="{{oldUser.id}}" hidden>
+        <input type="text" name="name" id="name" value="{{oldUser.name}}" onchange="BlockDelBut()" pattern="[A-Za-zА-Яа-яЁё\s]+" required>
+        <input type="text" name="phone" id="phone" value="{{oldUser.phone}}" onchange="BlockDelBut()" pattern="[0-9]{9}" required >
+        <input id="button" type="submit" class="btn btn-primary" value="Update">
+    </form>
+    <form action="/delete" method="post">
+        <input type="text" name="id" id="id" value="{{oldUser.id}}" hidden>
+        <input type="submit" id="deleteButton" class="btn btn-danger" value="Delete">
+    </form>
+     {{#discard}}{{/discard}}
+</div>
+</div>
+
+
+<script>
+
+    window.onload = function(){
+        document.getElementById("mySelect").disabled = true;
+    }
+
+    function BlockDelBut() {
+        document.getElementById("deleteButton").disabled = true;
+    }
+</script>
